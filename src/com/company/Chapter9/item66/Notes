@@ -1,0 +1,14 @@
+
+vim HelloWorld.java
+# generate class
+javac HelloWorld.java
+# generate Hello.h
+javah -jni HelloWorld
+# generate .so
+gcc -I/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home/include/ -I/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home/include/darwin -o libHelloWorld.so -fPIC Hello.c
+
+# fatal error: 'jni.h' file not found:
+-I/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home/include/:
+
+# fatal error: 'jni_md.h' file not found:
+-I/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home/include/darwin

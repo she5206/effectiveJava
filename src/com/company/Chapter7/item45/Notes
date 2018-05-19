@@ -1,0 +1,12 @@
+Stream pipelines are evaluated lazily: evaluation doesn’t start until the terminal operation is invoked
+The streams API is fluent: it is designed to allow all of the calls that comprise a pipeline to be chained into a single expression.
+
+
+streams make it very easy to do some things:
+• Uniformly transform sequences of elements
+• Filter sequences of elements
+• Combine sequences of elements using a single operation (for example to add them, concatenate them, or compute their minimum)
+• Accumulate sequences of elements into a collection, perhaps grouping them by some common attribute
+• Search a sequence of elements for an element satisfying some criterion
+
+In summary, If you’re not sure whether a task is better served by streams or iteration, try both and see which works better.

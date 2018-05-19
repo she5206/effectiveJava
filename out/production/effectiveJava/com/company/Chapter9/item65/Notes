@@ -1,0 +1,18 @@
+Item 65: Prefer interfaces to reflection
+
+* java.lang.reflect offers programmatic access to arbitrary classes.
+* Given a Class object, you can obtain: Constructor, Method, and Field instances
+* Reflection allows one class to use another, however, comes at a price:
+    • You lose all the benefits of compile-time type checking
+    • The code required to perform reflective access is clumsy and verbose.
+    • Performance suffers. [demo] Hello.java
+[demo] Example 1
+* This example demonstrates two disadvantages of reflection.
+  First, the example can generate six different exceptions at runtime, they could be compile-time errors if not use reflection
+  Second, 25 lines code(reflection) v.s. 1 line(constructor invocation)
+
+* A legitimate use of reflection is to manage a class’s dependencies on other classes, methods, or fields that may be absent at runtime.
+
+*In summary,
+use reflection only to instantiate objects, and access the objects using interface or superclass that is known at compile time.
+

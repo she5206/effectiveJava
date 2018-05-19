@@ -1,0 +1,28 @@
+也不是每個時候method reference都比lamda好,
+相同類別之中的方法, 用lambda會比較簡單,
+service.execute(GoshThisClassNameIsHumongous::action);
+等價於
+service.execute(() -> action());
+
+Function.identity()
+等價於
+x -> x
+作者認為用x->x 比較好
+
+
+The below 4 kinds are not references refer to static methods:
+---------------------------------------------------------------------------------------------------------
+| Method Ref Type     | Example                 | Lambda Equivalent                                     |
+---------------------------------------------------------------------------------------------------------
+| Static              | Integer::parseInt       | str -> Integer.parseInt(str)                          |
+
+| Bound               | Instant.now()::isAfter  | Instant then = Instant.now(); t -> then.isAfter(t)    |
+
+| Unbound             | String::toLowerCase     | str -> str.toLowerCase()                              |
+
+| Class Constructor   | TreeMap<K,V>::new       | () -> new TreeMap<K,V>                                |
+
+| Array Constructor   | int[]::new              | len -> new int[len]                                   |
+---------------------------------------------------------------------------------------------------------
+
+Where method references are shorter and clearer, use them; where they aren’t, stick with lambdas
