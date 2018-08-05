@@ -36,7 +36,7 @@ protected boolean removeEldestEntry(Map.Entry<K,V> eldest) {
 | Consumer<T>            | void accept(T t)        | System.out::println    |
 -----------------------------------------------------------------------------
 
-@TODO: 中間一大段不是很懂
+@TODO: 中間一大段介紹43種差異
 
 Don’t be tempted to use basic functional interfaces with boxed primitives instead of primitive functional interfaces.
 Item 61, “prefer primitive types to boxed primitives.”

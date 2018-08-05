@@ -3,88 +3,21 @@ package com.company.Chapter9.item65.example1;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
-class MyMenu implements Set<String> {
+class MyMenu extends TreeSet<String> {
     public MyMenu() {
-        this.add("hi");
-    }
-
-    @Override
-    public int size() {
-        return 0;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return false;
-    }
-
-    @Override
-    public boolean contains(Object o) {
-        return false;
-    }
-
-    @Override
-    public Iterator<String> iterator() {
-        return null;
-    }
-
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
-    }
-
-    @Override
-    public <T> T[] toArray(T[] a) {
-        return null;
-    }
-
-    @Override
-    public boolean add(String s) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(Object o) {
-        return false;
-    }
-
-    @Override
-    public boolean containsAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean addAll(Collection<? extends String> c) {
-        return false;
-    }
-
-    @Override
-    public boolean retainAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean removeAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public void clear() {
-
-    }
-    public void foo(){
 
     }
 }
 
 public class Example1 {
-    //@SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
-        String[] input = {"com.company.Chapter9.item65.example1.MyMenu"};
+        String[] input = {"com.company.Chapter9.item65.example1.MyMenu", "string1", "string2", "string3", "string4"};
         // Translate the class name into a Class object
         Class<? extends Set<String>> cl = null;
         try {
@@ -115,8 +48,11 @@ public class Example1 {
             fatalError("Class doesn't implement Set");
         }
         // Exercise the set
-        s.addAll(Arrays.asList(input).subList(1, input.length));
-        System.out.println(s);
+        List list = Arrays.asList(input).subList(1, input.length);
+        s.addAll(list);
+        for (String ss : s) {
+            System.out.println(ss);
+        }
     }
 
     private static void fatalError(String msg) {

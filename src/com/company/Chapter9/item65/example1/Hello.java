@@ -8,15 +8,23 @@ interface Base {
 
 public class Hello implements Base {
     public static void main(String[] args) throws Exception {
-        System.out.println(System.currentTimeMillis());
+        // 直接 new 物件
+        long startTs1 = System.currentTimeMillis();
         for (int i = 0; i < 100; i++) {
             say(new Hello());
         }
-        System.out.println(System.currentTimeMillis());
+        long endTs1 = System.currentTimeMillis();
+        System.out.println("");
+        System.out.println("For normal class, it costs:" + (endTs1 - startTs1));
+
+        // 使用 reflection
+        long startTs2 = System.currentTimeMillis();
         for (int i = 0; i < 100; i++) {
             say("com.company.Chapter9.item65.example1.Hello");
         }
-        System.out.println(System.currentTimeMillis());
+        long endTs2 = System.currentTimeMillis();
+        System.out.println("");
+        System.out.println("For reflection class, it costs:" + (endTs2 - startTs2));
     }
 
     /**
@@ -46,7 +54,7 @@ public class Hello implements Base {
 
     @Override
     public void sayHello() {
-        System.out.println("hello~~~~~~~~~~~");
+        System.out.print("hello~~~~~~~~~~~");
     }
 }
 
